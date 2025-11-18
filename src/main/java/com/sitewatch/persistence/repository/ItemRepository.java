@@ -35,7 +35,7 @@ public interface ItemRepository extends JpaRepository<Item, UUID> {
     /**
      * Find all items discovered after a specific timestamp.
      *
-     * @param after find items discovered after this instant
+     * @param after    find items discovered after this instant
      * @param pageable pagination and sorting parameters
      * @return page of recent items
      */
@@ -45,7 +45,7 @@ public interface ItemRepository extends JpaRepository<Item, UUID> {
      * Find an item by source ID and link (unique constraint).
      *
      * @param sourceId the source UUID
-     * @param link the item URL
+     * @param link     the item URL
      * @return optional containing the item if found
      */
     Optional<Item> findBySourceIdAndLink(UUID sourceId, String link);
@@ -62,7 +62,7 @@ public interface ItemRepository extends JpaRepository<Item, UUID> {
      * Check if an item exists for a given source and link.
      *
      * @param sourceId the source UUID
-     * @param link the item URL
+     * @param link     the item URL
      * @return true if exists, false otherwise
      */
     boolean existsBySourceIdAndLink(UUID sourceId, String link);
@@ -74,4 +74,12 @@ public interface ItemRepository extends JpaRepository<Item, UUID> {
      * @return count of items
      */
     long countBySourceId(UUID sourceId);
+
+    /**
+     * Check if an item with the given link exists.
+     *
+     * @param link the item URL
+     * @return true if exists, false otherwise
+     */
+    boolean existsByLink(String link);
 }
