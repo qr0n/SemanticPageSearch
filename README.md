@@ -189,10 +189,6 @@ Custom metrics:
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and development process.
 
-## License
-
-[Specify your license here]
-
 ## Contact
 
-[Your contact information or project maintainer details]
+issues@ir0n.xyz
