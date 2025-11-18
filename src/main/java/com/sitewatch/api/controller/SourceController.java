@@ -8,7 +8,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +23,8 @@ import java.util.UUID;
  * SourceController
  *
  * REST API endpoints for managing website sources.
- * Provides CRUD operations for creating, retrieving, updating, and deleting sources.
+ * Provides CRUD operations for creating, retrieving, updating, and deleting
+ * sources.
  *
  * Base path: /api/v1/sources
  * Authentication: Required (JWT or API key)
@@ -37,7 +44,8 @@ public class SourceController {
      * Create a new monitored source.
      *
      * @param request the source creation request with validation
-     * @return HTTP 201 Created with the created source, or 400 Bad Request if validation fails
+     * @return HTTP 201 Created with the created source, or 400 Bad Request if
+     *         validation fails
      */
     @PostMapping
     public ResponseEntity<SourceDTO> createSource(@Valid @RequestBody CreateSourceRequest request) {

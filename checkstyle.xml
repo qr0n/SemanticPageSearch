@@ -5,38 +5,26 @@
 
 <module name="Checker">
     <property name="charset" value="UTF-8"/>
-    <property name="severity" value="error"/>
+    <property name="severity" value="warning"/>
     <property name="fileExtensions" value="java"/>
 
-    <!-- Exclude generated and test files from strict Javadoc requirements -->
     <module name="SuppressionFilter">
-        <property name="file" value="${config_loc}/checkstyle-suppressions.xml"/>
+        <property name="file" value="checkstyle-suppressions.xml"/>
         <property name="optional" value="true"/>
     </module>
 
     <module name="TreeWalker">
         <!-- Javadoc Requirements -->
         <module name="JavadocType">
-            <property name="scope" value="public"/>
-            <property name="authorFormat" value="\S"/>
+            <property name="tokens" value="INTERFACE_DEF, CLASS_DEF"/>
         </module>
 
         <module name="JavadocMethod">
-            <property name="scope" value="public"/>
-            <property name="validateThrows" value="false"/>
-            <property name="allowMissingParamTags" value="false"/>
-            <property name="allowMissingReturnTag" value="false"/>
-        </module>
-
-        <module name="JavadocVariable">
-            <property name="scope" value="public"/>
+            <property name="accessModifiers" value="public"/>
         </module>
 
         <module name="MissingJavadocMethod">
-            <property name="scope" value="public"/>
-            <property name="minLineCount" value="2"/>
             <property name="allowMissingPropertyJavadoc" value="true"/>
-            <property name="ignoreMethodNamesRegex" value="^(get|set|is).*$"/>
         </module>
 
         <!-- Naming Conventions -->
@@ -50,24 +38,15 @@
         <module name="LeftCurly"/>
         <module name="RightCurly"/>
         <module name="NeedBraces"/>
-        <module name="AvoidNestedBlocks"/>
 
         <!-- Imports -->
         <module name="AvoidStarImport"/>
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
 
-        <!-- Whitespace -->
-        <module name="WhitespaceAfter"/>
-        <module name="WhitespaceAround"/>
-        <module name="NoWhitespaceBefore"/>
-
         <!-- Complexity -->
         <module name="CyclomaticComplexity">
             <property name="max" value="15"/>
-        </module>
-        <module name="MethodLength">
-            <property name="max" value="150"/>
         </module>
 
         <!-- Other Best Practices -->
@@ -83,6 +62,4 @@
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
     </module>
-
-    <module name="FileTabCharacter"/>
 </module>

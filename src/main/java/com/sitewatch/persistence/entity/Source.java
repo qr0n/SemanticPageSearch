@@ -1,7 +1,19 @@
 package com.sitewatch.persistence.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,8 +40,8 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "sources", indexes = {
-    @Index(name = "idx_sources_url", columnList = "url"),
-    @Index(name = "idx_sources_last_checked", columnList = "last_checked")
+        @Index(name = "idx_sources_url", columnList = "url"),
+        @Index(name = "idx_sources_last_checked", columnList = "last_checked")
 })
 @Getter
 @Setter
@@ -65,7 +77,8 @@ public class Source {
     private SourceMode mode;
 
     /**
-     * Array of keywords for content filtering (case-insensitive substring matching).
+     * Array of keywords for content filtering (case-insensitive substring
+     * matching).
      */
     @Column(name = "filter_keywords", columnDefinition = "text[]")
     private String[] filterKeywords;
